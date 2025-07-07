@@ -3,7 +3,7 @@ title: OUILOOKUP
 section: 1
 header: User Commands
 footer: ouilookup 0.0.5
-date: 2025-07-06
+date: 2025-07-07
 author: Todd Wintermute
 ---
 

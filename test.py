@@ -8,7 +8,7 @@ __module__ = 'ouilookup'
 __script__ = 'ouilookup'
 __author__ = 'Todd Wintermute'
 __version__ = '0.0.5'
-__date__ = '2025-07-07'
+__date__ = '2025-07-06'
 __info__ = (
     'Tool to obtain vendor name / organizationally unique identifier (OUI) '
     'for MAC addresses'
