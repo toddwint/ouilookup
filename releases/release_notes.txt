@@ -1,0 +1,7 @@
+## Version 0.0.5
+
+- Command-line. Shell completions and man page now included.
+- Installation. Packaged for python into a .whl and a .tar.gz
+- Installation. Portable version is included as a python zipapp (.pyz)
+- Documentation. New README. Added MANUAL and INSTALL documents.
+- Organization. Updated project folder structure.

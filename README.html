@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Todd Wintermute" />
+  <meta name="dcterms.date" content="yyyy-mm-dd" />
+  <title>README</title>
+  <style>
+html {
+font-family: Helvetica,Verdana,Sans-serif;
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: blue;
+}
+a:visited {
+color: blue;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+background-color: whitesmoke;
+padding: .2em .4em;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+background-color: whitesmoke;
+padding: 1em;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+background-color: #1a1a1a;
+border: none;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+caption-side: bottom;
+margin-top: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">README</h1>
+<p class="author">Todd Wintermute</p>
+<p class="date">2025-07-06</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#oui-lookup-ouilookup" id="toc-oui-lookup-ouilookup"><span class="toc-section-number">1</span> <em>OUI Lookup</em>
+(<code>ouilookup</code>)</a>
+<ul>
+<li><a href="#description" id="toc-description"><span class="toc-section-number">1.1</span> Description</a></li>
+<li><a href="#features" id="toc-features"><span class="toc-section-number">1.2</span> Features</a></li>
+<li><a href="#installing" id="toc-installing"><span class="toc-section-number">1.3</span> Installing</a></li>
+<li><a href="#usage" id="toc-usage"><span class="toc-section-number">1.4</span> Usage</a>
+<ul>
+<li><a href="#manual" id="toc-manual"><span class="toc-section-number">1.4.1</span> Manual</a></li>
+<li><a href="#help-option" id="toc-help-option"><span class="toc-section-number">1.4.2</span> Help Option</a></li>
+</ul></li>
+<li><a href="#examples" id="toc-examples"><span class="toc-section-number">1.5</span> Examples</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="oui-lookup-ouilookup"><span class="header-section-number">1</span> <em>OUI Lookup</em>
+(<code>ouilookup</code>)</h1>
+<h2 data-number="1.1" id="description"><span class="header-section-number">1.1</span> Description</h2>
+<p>View OUI information for provided MAC addresses.</p>
+<p>This program uses information from IEEE to display the organization
+information of registered MAC addresses.</p>
+<p>Input MACs or just the OUI portion (first half of the MAC [6 digits])
+as arguments and the vendor name is display.</p>
+<p>The <code>oui.csv</code> file must be downloaded and converted to
+<code>oui.json</code> first. Use the command <code>ouilookup -d</code>
+to obtain this file. It will download the file and also convert it to
+<code>oui.json</code> at the location specified in
+<code>ouilookup --help</code>.</p>
+<p>Run <code>ouilookup</code> by supplying one or more MACs or OUIs as
+arguments. You can use just about any format as the input will be
+automatically converted.</p>
+<p>By default, if no arguments are supplied, the script will enter an
+interactive mode and prompt the user to enter a MAC/OUI.</p>
+<p><em>OUI Lookup</em> (<code>ouilookup</code>) is written in
+<em>Python</em>.</p>
+<h2 data-number="1.2" id="features"><span class="header-section-number">1.2</span> Features</h2>
+<ul>
+<li>View the vendor name for each MAC address</li>
+<li>Can supply multiple MACs as arguments</li>
+<li>Can supply either the full MAC address or OUI portion of the MAC as
+arguments</li>
+<li>MACs can be in various formats</li>
+</ul>
+<h2 data-number="1.3" id="installing"><span class="header-section-number">1.3</span> Installing</h2>
+<p>See the <strong><code>INSTALL</code></strong> document for
+instructions on how to install this program.</p>
+<h2 data-number="1.4" id="usage"><span class="header-section-number">1.4</span> Usage</h2>
+<p>Use one of the following options to learn how to use this
+program.</p>
+<h3 data-number="1.4.1" id="manual"><span class="header-section-number">1.4.1</span> Manual</h3>
+<p>The program’s command usage and also examples are included in a
+document named <strong><code>MANUAL</code></strong> in various formats
+including pdf, markdown, and html.</p>
+<p>On certain platforms, usage and examples can also be found in the
+program’s <strong><code>man</code></strong> page. On systems which
+utilize <strong><code>man</code></strong> pages, you can view the manual
+with the command <strong><code>man ouilookup</code></strong>.</p>
+<h3 data-number="1.4.2" id="help-option"><span class="header-section-number">1.4.2</span> Help Option</h3>
+<p>You can type either <strong><code>ouilookup -h</code></strong> or
+<strong><code>ouilookup --help</code></strong> at the command line
+interface to see the program’s options and usage.</p>
+<h2 data-number="1.5" id="examples"><span class="header-section-number">1.5</span> Examples</h2>
+<p>For examples see the <strong><code>Examples</code></strong> section
+in the <strong><code>MANUAL</code></strong> document. You can also see
+examples if you view the <strong><code>man</code></strong> page for this
+program.</p>
+</body>
+</html>

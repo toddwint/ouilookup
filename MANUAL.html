@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Todd Wintermute" />
+  <meta name="dcterms.date" content="yyyy-mm-dd" />
+  <title>OUILOOKUP</title>
+  <style>
+html {
+font-family: Helvetica,Verdana,Sans-serif;
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: blue;
+}
+a:visited {
+color: blue;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+background-color: whitesmoke;
+padding: .2em .4em;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+background-color: whitesmoke;
+padding: 1em;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+background-color: #1a1a1a;
+border: none;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+caption-side: bottom;
+margin-top: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } 
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.at { color: #204a87; } 
+code span.bn { color: #0000cf; } 
+code span.cf { color: #204a87; font-weight: bold; } 
+code span.ch { color: #4e9a06; } 
+code span.cn { color: #8f5902; } 
+code span.co { color: #8f5902; font-style: italic; } 
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.dt { color: #204a87; } 
+code span.dv { color: #0000cf; } 
+code span.er { color: #a40000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #0000cf; } 
+code span.fu { color: #204a87; font-weight: bold; } 
+code span.im { } 
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.kw { color: #204a87; font-weight: bold; } 
+code span.op { color: #ce5c00; font-weight: bold; } 
+code span.ot { color: #8f5902; } 
+code span.pp { color: #8f5902; font-style: italic; } 
+code span.sc { color: #ce5c00; font-weight: bold; } 
+code span.ss { color: #4e9a06; } 
+code span.st { color: #4e9a06; } 
+code span.va { color: #000000; } 
+code span.vs { color: #4e9a06; } 
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">OUILOOKUP</h1>
+<p class="author">Todd Wintermute</p>
+<p class="date">2025-07-06</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#name" id="toc-name"><span class="toc-section-number">1</span> Name</a></li>
+<li><a href="#synopsis" id="toc-synopsis"><span class="toc-section-number">2</span> Synopsis</a></li>
+<li><a href="#description" id="toc-description"><span class="toc-section-number">3</span> Description</a>
+<ul>
+<li><a href="#positional-arguments" id="toc-positional-arguments"><span class="toc-section-number">3.1</span> Positional Arguments</a></li>
+<li><a href="#option-flags" id="toc-option-flags"><span class="toc-section-number">3.2</span> Option Flags</a></li>
+<li><a href="#download-ieee-oui-file" id="toc-download-ieee-oui-file"><span class="toc-section-number">3.3</span> Download Ieee Oui File</a></li>
+<li><a href="#shell-completion-options" id="toc-shell-completion-options"><span class="toc-section-number">3.4</span> Shell Completion Options</a></li>
+</ul></li>
+<li><a href="#examples" id="toc-examples"><span class="toc-section-number">4</span> Examples</a>
+<ul>
+<li><a href="#example-1" id="toc-example-1"><span class="toc-section-number">4.1</span> Example 1</a></li>
+<li><a href="#example-2" id="toc-example-2"><span class="toc-section-number">4.2</span> Example 2</a></li>
+<li><a href="#example-3" id="toc-example-3"><span class="toc-section-number">4.3</span> Example 3</a></li>
+<li><a href="#example-4" id="toc-example-4"><span class="toc-section-number">4.4</span> Example 4</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="name"><span class="header-section-number">1</span> Name</h1>
+<p>ouilookup - Tool to obtain vendor name / organizationally unique
+identifier (OUI) for MAC addresses</p>
+<h1 data-number="2" id="synopsis"><span class="header-section-number">2</span> Synopsis</h1>
+<p><strong><code>ouilookup</code></strong>
+<code>[</code><strong><code>-h</code></strong><code>]</code>
+<code>[</code><strong><code>-f</code></strong>
+<em><code>FILE</code></em><code>]</code>
+<code>[</code><strong><code>--download</code></strong><code>]</code>
+<code>[</code><strong><code>--completion</code></strong>
+<code>{</code><strong><code>bash</code></strong>,<strong><code>zsh</code></strong>,<strong><code>fish</code></strong><code>}]</code>
+<code>[</code><strong><code>--version</code></strong><code>]</code>
+<code>[</code><strong><code>--quiet</code></strong><code>]</code>
+<em><code>MAC</code></em> <code>[</code><em><code>MAC</code></em>
+<code>...]</code></p>
+<h1 data-number="3" id="description"><span class="header-section-number">3</span> Description</h1>
+<p>This program takes one or more MAC addresses and returns the Org
+Name. It uses information from
+<code>https://standards- oui.ieee.org/oui/oui.csv</code>.</p>
+<h2 data-number="3.1" id="positional-arguments"><span class="header-section-number">3.1</span> Positional Arguments</h2>
+<dl>
+<dt><em><code>MAC</code></em></dt>
+<dd>
+the full MAC address or the OUI portion (first 6 hex digits). If
+providing multiple items, separate each MAC/OUI with a space. Within the
+MAC/OUI separating characters such as <code>:</code>, <code>-</code>, or
+<code>.</code> are allowed at any interval. Examples: 74:13:ea:9a:22:2e
+28-EA-0B-6C-A9-E5 b4df.9181.7fb1 e073e7-ec3802 080030
+</dd>
+</dl>
+<h2 data-number="3.2" id="option-flags"><span class="header-section-number">3.2</span> Option Flags</h2>
+<dl>
+<dt><strong><code>-h</code></strong>,
+<strong><code>--help</code></strong></dt>
+<dd>
+show this help message and exit
+</dd>
+<dt><strong><code>-f</code></strong> <em><code>FILE</code></em>,
+<strong><code>--file</code></strong> <em><code>FILE</code></em></dt>
+<dd>
+use a file with one MAC address per line.
+</dd>
+<dt><strong><code>--version</code></strong>,
+<strong><code>-v</code></strong></dt>
+<dd>
+show the version number and exit
+</dd>
+<dt><strong><code>--quiet</code></strong>,
+<strong><code>-q</code></strong></dt>
+<dd>
+suppress warning messages when MAC is not found to be valid
+</dd>
+</dl>
+<h2 data-number="3.3" id="download-ieee-oui-file"><span class="header-section-number">3.3</span> Download Ieee Oui File</h2>
+<dl>
+<dt><strong><code>--download</code></strong>,
+<strong><code>-d</code></strong></dt>
+<dd>
+download the IEEE OUI file <code>oui.csv</code> and save to
+<code>{HOME}/.local/share/ouilookup</code> on Linux or
+<code>{APPDATA}\ouilookup</code> on Windows as <code>oui.csv</code>.
+Also convert CSV to JSON and save as <code>oui.json</code>
+</dd>
+</dl>
+<h2 data-number="3.4" id="shell-completion-options"><span class="header-section-number">3.4</span> Shell Completion Options</h2>
+<dl>
+<dt><strong><code>--completion</code></strong>
+<code>{</code><strong><code>bash</code></strong>,<strong><code>zsh</code></strong>,<strong><code>fish</code></strong><code>}</code></dt>
+<dd>
+print ouilookup shell completion to the terminal and exit
+</dd>
+</dl>
+<h1 data-number="4" id="examples"><span class="header-section-number">4</span> Examples</h1>
+<h2 data-number="4.1" id="example-1"><span class="header-section-number">4.1</span> Example 1</h2>
+<p>Lookup the vendor name for a MAC address.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ouilookup 64:4e:d7:00:22:33</span></code></pre></div>
+<p>output:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">64:4E:D7:00:22:33</span>  644ED7  HP Inc.</span></code></pre></div>
+<h2 data-number="4.2" id="example-2"><span class="header-section-number">4.2</span> Example 2</h2>
+<p>Look up the vendor name for the OUI portion of a MAC address.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ouilookup 000c29</span></code></pre></div>
+<p>output:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">00:0C:29:00:00:00</span>  000C29  VMware, Inc.</span></code></pre></div>
+<h2 data-number="4.3" id="example-3"><span class="header-section-number">4.3</span> Example 3</h2>
+<p>Look up the vendor name for multiple MAC addresses and OUI portions
+of MAC addreesses.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ouilookup 000c29 000001.112233 64:4e:d7:00:22:33 64-1B-2F-2A-CC-5E</span></code></pre></div>
+<p>output:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">00:0C:29:00:00:00</span>  000C29  VMware, Inc.</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">00:00:01:11:22:33</span>  000001  XEROX CORPORATION</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">64:4E:D7:00:22:33</span>  644ED7  HP Inc.</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">64:1B:2F:2A:CC:5E</span>  641B2F  Samsung Electronics Co.,Ltd</span></code></pre></div>
+<h2 data-number="4.4" id="example-4"><span class="header-section-number">4.4</span> Example 4</h2>
+<p>Use the file (-f) option to read MACs from a saved file.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ouilookup</span> <span class="at">-f</span> examples/macs.txt </span></code></pre></div>
+<p>output:</p>
+<pre><code>E8:0A:B9:00:C1:A2  E80AB9  Cisco Systems, Inc
+40:84:32:3D:42:B1  408432  Microchip Technology Inc.
+70:F8:AE:EF:22:A4  70F8AE  Microsoft Corporation
+64:51:06:AA:BB:C8  645106  Hewlett Packard
+90:9B:6F:5B:F2:34  909B6F  Apple, Inc.
+2C:AB:33:56:8A:62  2CAB33  Texas Instruments
+50:02:38:83:AA:2B  500238  Nokia Shanghai Bell Co., Ltd.
+44:49:88:E4:8B:33  444988  Intel Corporate
+E4:F2:7C:88:B1:20  E4F27C  Juniper Networks</code></pre>
+<p>contents of <code>examples/macs.txt</code></p>
+<pre><code>e80a.b900.c1a2
+40:84:32:3d:42:b1
+70-F8-AE-EF-22-A4
+645106-aabbc8
+90:9b:6f:5b:f2:34
+2C-AB-33-56-8a-62
+50023883aa2b
+44:49:88:E4:8B:33
+E4:F2:7C:88:B1:20</code></pre>
+</body>
+</html>

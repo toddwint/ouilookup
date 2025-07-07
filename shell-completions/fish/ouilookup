@@ -1,0 +1,11 @@
+# Fish shell completion for ouilookup
+
+
+complete --command ouilookup --command ouilookup.py --command ouilookup.pyz --no-files
+complete --command ouilookup --command ouilookup.py --command ouilookup.pyz --short-option h --long-option help --description 'show this help message and exit' --no-files
+complete --command ouilookup --command ouilookup.py --command ouilookup.pyz --short-option f --long-option file --description 'use a file with one MAC address per line.' --require-parameter --force-files
+complete --command ouilookup --command ouilookup.py --command ouilookup.pyz --short-option d --long-option download --description 'download the IEEE OUI file `oui.csv` and save to `{HOME}/.local/share/ouilookup` on Linux or `{APPDATA}\\ouilookup` on Windows as `oui.csv`. Also convert CSV to JSON and save as `oui.json`' --no-files
+complete --command ouilookup --command ouilookup.py --command ouilookup.pyz --long-option completion --description 'print ouilookup shell completion to the terminal and exit' --arguments 'bash zsh fish' --require-parameter --no-files
+complete --command ouilookup --command ouilookup.py --command ouilookup.pyz --short-option v --long-option version --description 'show the version number and exit' --no-files
+complete --command ouilookup --command ouilookup.py --command ouilookup.pyz --short-option q --long-option quiet --description 'suppress warning messages when MAC is not found to be valid' --no-files
+complete --command ouilookup --command ouilookup.py --command ouilookup.pyz --description 'the full MAC address or the OUI portion (first 6 hex digits). If providing multiple items, separate each MAC/OUI with a space. Within the MAC/OUI separating characters such as `:`, `-`, or `.` are allowed at any interval. Examples: 74:13:ea:9a:22:2e 28-EA-0B-6C-A9-E5 b4df.9181.7fb1 e073e7-ec3802 080030' --no-files
