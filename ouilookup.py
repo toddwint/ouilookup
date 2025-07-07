@@ -14,7 +14,6 @@ __info__ = (
     'for MAC addresses'
     )
 
-#import readline # posix systems only, imported later
 import argparse
 import csv
 import datetime
@@ -27,6 +26,11 @@ import shlex
 import string
 import sys
 import urllib.request
+try:
+    # Set interactive mode input history (posix systems only)
+    import readline
+except:
+    readline = None
 
 
 def get_config_location():
@@ -39,9 +43,6 @@ def get_config_location():
         conf_dir = home_dir / '.local' / 'share' / __script__
     if not all([conf_dir.exists(),conf_dir.is_dir()]):
         conf_dir.mkdir(parents=True, exist_ok=True)
-    if os.name == 'posix':
-        # Set interactive mode input history via readline
-        import readline
     return conf_dir
 
 
