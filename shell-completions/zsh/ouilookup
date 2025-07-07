@@ -12,15 +12,12 @@ _shtab_ouilookup_commands() {
 
 _shtab_ouilookup_options=(
   "(- : *)"{-h,--help}"[show this help message and exit]"
-  "(- : *)"{-v,--version}"[show the version number and exit]"
-  {-d,--download}"[Download \`https\:\/\/standards-oui.ieee.org\/oui\/oui.txt\` to \`\/home\/todd\/oui.txt\`.]"
-  {-f,--file}"[Use a file with one MAC address per line. This option can be combined with the \`--include\` option.]:file:"
-  {-q,--quiet}"[Suppress warning messages when MAC is not valid\/supplied]"
-  {-i,--include}"[Include one additional item of information in the output, such as an IP address or a hostname, by specifying the additional information followed by the OUI. The format is additional-information followed by a field separator followed by the OUI. Field separator choices are comma (default), semicolon, and whitespace characters.
-Examples\: \`192.168.1.14,00\:1a\:8c\:03\:60\:f9\` \`foo-srvr,00\:1a\:8c\:03\:60\:fa\`.
-Note\: type -- after -i for the default field separator or add the -i option at the very end of the command.]:sep:(; ,   	 
-   )"
-  "(*)::The OUI portion of the MAC (first 6 hex digits) or the entire MAC. If providing multiple, separate each OUI\/MAC with a space. Within the OUI\/MAC separating characters such as \`\:\`, \`-\`, or \`.\` are allowed:"
+  "*"{-f,--file}"[use a file with one MAC address per line.]:files:"
+  {--download,-d}"[download the IEEE OUI file \`oui.csv\` and save to \`\{HOME\}\/.local\/share\/ouilookup\` on Linux or \`\{APPDATA\}\\ouilookup\` on Windows as \`oui.csv\`. Also convert CSV to JSON and save as \`oui.json\`]"
+  "--completion[print ouilookup shell completion to the terminal and exit]:completion:(bash zsh fish)"
+  "(- : *)"{--version,-v}"[show the version number and exit]"
+  {--quiet,-q}"[suppress warning messages when MAC is not found to be valid]"
+  "(*):the full MAC address or the OUI portion (first 6 hex digits). If providing multiple items, separate each MAC\/OUI with a space. Within the MAC\/OUI separating characters such as \`\:\`, \`-\`, or \`.\` are allowed at any interval. Examples\: 74\:13\:ea\:9a\:22\:2e 28-EA-0B-6C-A9-E5 b4df.9181.7fb1 e073e7-ec3802 080030:"
 )
 
 
